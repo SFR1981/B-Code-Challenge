@@ -19,7 +19,7 @@ public class Day {
 
     @XmlElement(name="Date")
     public String getDate() {
-        return date;
+        return this.date;
     }
 
     public void setDate(String date) {
