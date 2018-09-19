@@ -42,5 +42,9 @@ public class CoalGenerator extends GasGenerator {
     public void setActualNetGeneration(double actualNetGeneration) {
         this.actualNetGeneration = actualNetGeneration;
     }
+
+    public double getActualHeatRate(){
+        return (this.totalHeatInput / this.actualNetGeneration);
+    }
 }
 
