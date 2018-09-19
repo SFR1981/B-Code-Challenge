@@ -12,13 +12,13 @@ public class Generation {
         this.days = days;
     }
 
-
+    @XmlElement(name="Day")
     public ArrayList<Day> getDays() {
         return this.days;
     }
 
 
-    @XmlElement(name="Generation")
+
     public void setGeneration(ArrayList<Day> days) {
         this.days = days;
     }

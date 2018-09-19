@@ -1,4 +1,5 @@
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.ArrayList;
 
 public abstract class Generator {
