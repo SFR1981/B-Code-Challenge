@@ -1,3 +1,7 @@
+package Reference;
+
+import Reference.ValueFactor;
+
 import javax.xml.bind.annotation.XmlElement;
 
 public class Factors {

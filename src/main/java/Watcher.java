@@ -1,3 +1,5 @@
+import Reference.Calculator;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -10,7 +12,8 @@ public class Watcher {
 
     public static void main(String[] args) {
 
-
+        //Watch for new file entering folder - title of file can be anything
+        // but schema must match GenerationReport.xml
         try (WatchService service = FileSystems.getDefault().newWatchService()) {
             Map<WatchKey, Path> keyMap = new HashMap<>();
             Path path = Paths.get("input");
@@ -40,9 +43,11 @@ public class Watcher {
 
     public static void makeReport(Path eventPath) {
         System.out.println("I am making the report with all the things!");
+        Calculator calculator = new Calculator();
+
 
         File inputFile = new File("input/"+ eventPath);
-        System.out.println(inputFile);
+
         try {
             JAXBContext context = JAXBContext.newInstance(GenerationReport.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
