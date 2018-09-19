@@ -8,15 +8,15 @@ import java.util.ArrayList;
 public class GenerationOutput {
 
 
-    private Totals totals;
-    private MaxEmissionGenerators maxEmissionGenerators;
+    private ArrayList<Generator> totals;
+    private ArrayList<Day> maxEmissionGenerators;
     private ArrayList<ActualHeatRates> actualHeatRatesList;
 
     public GenerationOutput() {
     }
 
-    public GenerationOutput(Totals totals,
-                            MaxEmissionGenerators maxEmissionGenerators,
+    public GenerationOutput(ArrayList<Generator> totals,
+                            ArrayList<Day> maxEmissionGenerators,
                             ArrayList<ActualHeatRates> actualHeatRatesList) {
         this.totals = totals;
         this.maxEmissionGenerators = maxEmissionGenerators;
@@ -25,20 +25,20 @@ public class GenerationOutput {
     }
 
     @XmlElement(name="Totals")
-    public Totals getTotals() {
+    public ArrayList<Generator> getTotals() {
         return totals;
     }
 
-    public void setTotals(Totals totals) {
+    public void setTotals(ArrayList<Generator> totals) {
         this.totals = totals;
     }
 
     @XmlElement(name="MaxEmissionGenerators")
-    public MaxEmissionGenerators getMaxEmissionGenerators() {
+    public ArrayList<Day> getMaxEmissionGenerators() {
         return maxEmissionGenerators;
     }
 
-    public void setMaxEmissionGenerators(MaxEmissionGenerators maxEmissionGenerators) {
+    public void setMaxEmissionGenerators(ArrayList<Day> maxEmissionGenerators) {
         this.maxEmissionGenerators = maxEmissionGenerators;
     }
 
