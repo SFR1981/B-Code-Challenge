@@ -22,7 +22,7 @@ public class WindGenerator extends Generator {
         return this.location;
     }
 
-   // @XmlElement(name="Location")
+    @XmlElement(name="Location")
     public void setLocation(String location) {
         this.location = location;
     }

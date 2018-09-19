@@ -15,6 +15,6 @@ class GenerationTest {
 
     @Test
     void getdays() {
-       assertEquals(2, generation.getdays().size());
+       assertEquals(2, generation.getDays().size());
     }
 }

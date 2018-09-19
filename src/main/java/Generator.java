@@ -18,10 +18,11 @@ public abstract class Generator {
         return this.name;
     }
 
-    //@XmlElement(name="Name")
+    @XmlElement(name="Name")
     public void setName(String name) {
         this.name = name;
     }
+
 
 
 
@@ -29,7 +30,7 @@ public abstract class Generator {
         return this.generation;
     }
 
-    //@XmlElement(name="Generation")
+    @XmlElement(name="Generation")
     public void setGeneration(Generation generation) {
         this.generation = generation;
     }
