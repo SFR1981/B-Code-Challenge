@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Gas {
 
-    private ArrayList<GasGenerator> gasGenerators;
+    private ArrayList<GasGenerator> gasGenerators = new ArrayList<GasGenerator>();;
 
     public Gas(){}
 
@@ -11,11 +11,12 @@ public class Gas {
         this.gasGenerators = gasGenerators;
     }
 
-    @XmlElement(name="GasGenerator")
+
     public ArrayList<GasGenerator> getGasGenerators() {
         return gasGenerators;
     }
 
+    @XmlElement(name="GasGenerator")
     public void setGasGenerators(ArrayList<GasGenerator> gasGenerators) {
         this.gasGenerators = gasGenerators;
     }

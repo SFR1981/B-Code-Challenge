@@ -17,29 +17,32 @@ public class Day {
         this.price = price;
     }
 
-    @XmlElement(name="Date")
+
     public String getDate() {
         return this.date;
     }
 
+    @XmlElement(name="Date")
     public void setDate(String date) {
         this.date = date;
     }
 
-    @XmlElement(name="Energy")
+
     public double getEnergy() {
         return energy;
     }
 
+    @XmlElement(name="Energy")
     public void setEnergy(double energy) {
         this.energy = energy;
     }
 
-    @XmlElement(name="Price")
+
     public double getPrice() {
         return price;
     }
 
+    @XmlElement(name="Price")
     public void setPrice(double price) {
         this.price = price;
     }

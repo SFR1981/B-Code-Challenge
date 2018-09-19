@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Generation {
 
 
-    private ArrayList<Day> days;
+    private ArrayList<Day> days = new ArrayList<Day>();;
 
     public Generation(){}
 
@@ -12,11 +12,12 @@ public class Generation {
         this.days = days;
     }
 
-    @XmlElement(name="Day")
+
     public ArrayList<Day> getdays() {
         return this.days;
     }
 
+    @XmlElement(name="Day")
     public void setGeneration(ArrayList<Day> days) {
         this.days = days;
     }

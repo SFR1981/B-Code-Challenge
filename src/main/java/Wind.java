@@ -4,20 +4,26 @@ import java.util.ArrayList;
 
 public class Wind {
 
-    private ArrayList<WindGenerator> windGenerators;
+    private ArrayList<WindGenerator> windGenerators = new ArrayList<WindGenerator>();
 
-    public Wind(){}
 
     public Wind(ArrayList<WindGenerator> windGenerators){
         this.windGenerators = windGenerators;
     }
 
 
-    @XmlElement
+    public Wind(){
+
+    }
+
+
+
     public ArrayList<WindGenerator> getWindGenerators() {
         return windGenerators;
     }
 
+
+    @XmlElement(name="WindGenerator")
     public void setWindGenerators(ArrayList<WindGenerator> windGenerators) {
         this.windGenerators = windGenerators;
     }

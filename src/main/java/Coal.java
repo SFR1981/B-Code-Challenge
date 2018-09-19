@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Coal {
 
-    private ArrayList<CoalGenerator> coalGenerators;
+    private ArrayList<CoalGenerator> coalGenerators = new ArrayList<CoalGenerator>();;
 
     public Coal(){}
 
@@ -11,11 +11,12 @@ public class Coal {
         this.coalGenerators = coalGenerators;
     }
 
-    @XmlElement(name="CoalGenerator")
+
     public ArrayList<CoalGenerator> getCoalGenerators() {
         return this.coalGenerators;
     }
 
+    @XmlElement(name="CoalGenerator")
     public void setCoalGenerators(ArrayList<CoalGenerator> coalGenerators) {
         this.coalGenerators = coalGenerators;
     }

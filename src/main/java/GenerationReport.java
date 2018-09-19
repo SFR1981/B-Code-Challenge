@@ -6,44 +6,52 @@ import java.util.ArrayList;
 @XmlRootElement(name="GenerationReport")
 public class GenerationReport {
 
-
         private Wind wind;
-        private ArrayList<GasGenerator> gasGenerators;
-        private ArrayList<CoalGenerator> coalGenerators;
-
+        private Gas gas;
+        private Coal coal;
 
         public GenerationReport(){
         }
 
         public GenerationReport(Wind wind,
-                                ArrayList<GasGenerator> gasGenerators,
-                                ArrayList<CoalGenerator> coalGenerators){
+                                Gas gas,
+                                Coal coal){
             this.wind = wind;
-            this.gasGenerators = gasGenerators;
-            this.coalGenerators = coalGenerators;
+            this.gas = gas;
+            this.coal = coal;
 
         }
 
 
 
-        @XmlElement(name="Wind")
         public Wind getWind() {
             return wind;
         }
 
 
-//        @XmlElementWrapper(name="Gas")
-//        @XmlElement(name="GasGenerator")
-//        public ArrayList<GasGenerator> getGasGenerators() {
-//            return this.gasGenerators;
-//        }
+        @XmlElement(name="Wind")
+        public void setWind(Wind wind){
+            this.wind = wind;
+        }
+
+        public Gas getGas() {
+            return this.gas;
+        }
+
+        @XmlElement(name="Gas")
+        public void setGas(Gas gas){
+            this.gas = gas;
+        }
 
 
-//        @XmlElementWrapper(name="Coal")
-//        @XmlElement(name="CoalGenerator")
-//        public ArrayList<CoalGenerator> getCoalGenerators() {
-//            return this.coalGenerators;
-//        }
+        public Coal getCoal() {
+            return this.coal;
+        }
+
+        @XmlElement(name="Coal")
+        public void setCoal(Coal coal){
+            this.coal = coal;
+        }
 //
 //        public ArrayList<Generator> getAllGenerators(){
 //            ArrayList <Generator> all = new ArrayList<Generator>();

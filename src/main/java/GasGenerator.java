@@ -13,11 +13,12 @@ public class GasGenerator extends Generator {
 
     public GasGenerator(){}
 
-    @XmlElement(name="EmissionsRating")
+
     public double getEmissionsRating() {
         return emissionsRating;
     }
 
+    @XmlElement(name="EmissionsRating")
     public void setEmissionsRating(double emissionsRating) {
         this.emissionsRating = emissionsRating;
     }

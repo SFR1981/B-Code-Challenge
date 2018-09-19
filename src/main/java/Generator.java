@@ -13,20 +13,23 @@ public abstract class Generator {
         this.generation = generation;
     }
 
-    @XmlElement(name="Name")
+
     public String getName() {
         return this.name;
     }
 
+    //@XmlElement(name="Name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @XmlElement(name="Generation")
+
+
     public Generation getGeneration() {
         return this.generation;
     }
 
+    //@XmlElement(name="Generation")
     public void setGeneration(Generation generation) {
         this.generation = generation;
     }

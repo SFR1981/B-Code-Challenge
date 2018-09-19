@@ -10,7 +10,6 @@ public class ReferenceData {
 
 
     private Factors factors;
-    private String string;
 
 
     public ReferenceData(){
@@ -19,7 +18,7 @@ public class ReferenceData {
 
     public ReferenceData(Factors factors){
         this.factors = factors;
-        this.string = "hello";
+
     }
 
 
@@ -34,13 +33,7 @@ public class ReferenceData {
     }
 
 
-    public String getString() {
-        return this.string;
-    }
 
-    public void setString(String string) {
-        this.string = string;
-    }
 }
 
 
