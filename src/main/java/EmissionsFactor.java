@@ -17,9 +17,15 @@ public class EmissionsFactor {
 
     public EmissionsFactor(){}
 
-    @XmlElement(name="High")
+
     public double getHigh() {
         return this.high;
+    }
+
+    @XmlElement(name="High")
+    public void setHigh(double high){
+        this.high = high;
+
     }
 
     @XmlElement(name="Medium")
@@ -27,9 +33,17 @@ public class EmissionsFactor {
         return this.medium;
     }
 
+    public void setMedium(double medium){
+        this.medium = medium;
+    }
+
     @XmlElement(name="Low")
     public double getLow() {
         return this.low;
+    }
+
+    public void setLow(double low){
+        this.low = low;
     }
 }
 

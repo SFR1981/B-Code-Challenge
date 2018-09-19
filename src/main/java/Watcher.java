@@ -10,6 +10,7 @@ public class Watcher {
 
     public static void main(String[] args) {
 
+
         try (WatchService service = FileSystems.getDefault().newWatchService()) {
             Map<WatchKey, Path> keyMap = new HashMap<>();
             Path path = Paths.get("input");
@@ -39,12 +40,13 @@ public class Watcher {
 
     public static void makeReport(Path eventPath) {
         System.out.println("I am making the report with all the things!");
+
         File inputFile = new File("input/"+ eventPath);
         System.out.println(inputFile);
         try {
             JAXBContext context = JAXBContext.newInstance(GenerationReport.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            GenerationReport generationReport = (GenerationReport) unmarshaller.unmarshal(file);
+            GenerationReport generationReport = (GenerationReport) unmarshaller.unmarshal(inputFile);
             System.out.println(generationReport);
             System.out.println(generationReport.getCoal().getCoalGenerators().size());
         } catch (JAXBException e) {
@@ -53,4 +55,7 @@ public class Watcher {
 
 
     }
+
+
+
 }

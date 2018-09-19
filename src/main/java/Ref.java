@@ -6,24 +6,34 @@ import java.io.File;
 public class Ref {
 
 
-    public static void main(String[] args) {
-        //TODO: implement detecting changes to input file
-        //TODO:Parse Input file and create java objects relative to xml tags
-        File file = new File("input/ReferenceData.xml");
+    public static ReferenceData getReference(String request) throws JAXBException {
+        ReferenceData referenceData = null;
+        File file = new File("static/ReferenceData.xml");
         System.out.println(file);
         try {
             JAXBContext context = JAXBContext.newInstance(ReferenceData.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
-            ReferenceData referenceData = (ReferenceData) unmarshaller.unmarshal(file);
-            System.out.println(referenceData);
+            referenceData = (ReferenceData) unmarshaller.unmarshal(file);
+            System.out.println(referenceData.getFactors().getValueFactor());
 
         } catch (JAXBException e) {
             e.printStackTrace();
 
-        }
-
-
+        } return referenceData;
     }
 
-}
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
 
