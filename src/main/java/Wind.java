@@ -1,4 +1,5 @@
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.ArrayList;
 
 public class Wind {
@@ -11,12 +12,10 @@ public class Wind {
         this.windGenerators = windGenerators;
     }
 
-    @XmlElement(name="WindGenerator")
+
+    @XmlElement
     public ArrayList<WindGenerator> getWindGenerators() {
-        if (this.windGenerators == null) {
-            this.windGenerators =  new ArrayList<WindGenerator>();
-        }
-        return this.windGenerators;
+        return windGenerators;
     }
 
     public void setWindGenerators(ArrayList<WindGenerator> windGenerators) {

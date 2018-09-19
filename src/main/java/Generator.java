@@ -15,7 +15,7 @@ public abstract class Generator {
 
     @XmlElement(name="Name")
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -24,7 +24,7 @@ public abstract class Generator {
 
     @XmlElement(name="Generation")
     public Generation getGeneration() {
-        return generation;
+        return this.generation;
     }
 
     public void setGeneration(Generation generation) {

@@ -25,7 +25,7 @@ public class CoalGenerator extends GasGenerator {
 
     @XmlElement(name="TotalHeatInput")
     public double getTotalHeatInput() {
-        return totalHeatInput;
+        return this.totalHeatInput;
     }
 
     public void setTotalHeatInput(double totalHeatInput) {
@@ -34,7 +34,7 @@ public class CoalGenerator extends GasGenerator {
 
     @XmlElement(name="ActualNetGeneration")
     public double getActualNetGeneration() {
-        return actualNetGeneration;
+        return this.actualNetGeneration;
     }
 
     public void setActualNetGeneration(double actualNetGeneration) {
