@@ -51,8 +51,8 @@ public class GenerationOutput {
     }
 
 
-    public void setActualHeatRates(ActualHeatRates actualHeatRates) {
-        this.actualHeatRatesList = actualHeatRatesList;
+    public void setActualHeatRates(ArrayList<ActualHeatRates> newActualHeatRatesList) {
+        this.actualHeatRatesList = newActualHeatRatesList;
     }
 
 

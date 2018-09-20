@@ -54,21 +54,6 @@ public class GenerationReport {
         public void setCoal(Coal coal){
             this.coal = coal;
         }
-//
-//        public ArrayList<OutputGenerator> getAllGenerators(){
-//            ArrayList <OutputGenerator> all = new ArrayList<OutputGenerator>();
-//            for (Input.CoalGenerator coalGenerator : this.coalGenerators){
-//                all.add(coalGenerator);
-//            }
-//            for (Input.GasGenerator gasGenerator : this.gasGenerators){
-//                all.add(gasGenerator);
-//            }
-//            for (Input.WindGenerator  windGenerator: this.windGenerators){
-//                all.add(windGenerator);
-//            }
-//            return all;
-//        }
-
 
     }
 

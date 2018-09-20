@@ -39,7 +39,6 @@ public class Watcher {
 
 
     public static void makeReport(Path eventPath) {
-        System.out.println("I am making the report with all the things!");
         Calculator calculator = new Calculator();
 
 
@@ -50,8 +49,6 @@ public class Watcher {
             Unmarshaller unmarshaller = context.createUnmarshaller();
             GenerationReport generationReport = (GenerationReport) unmarshaller.unmarshal(inputFile);
             CreateOutput.createObjects(generationReport);
-            System.out.println(generationReport);
-            System.out.println(generationReport.getCoal().getCoalGenerators().size());
         } catch (JAXBException e) {
             e.printStackTrace();
         }
