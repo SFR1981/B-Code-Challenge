@@ -19,13 +19,15 @@ public class CreateOutput {
 
     public static void createObjects(GenerationReport generationReport) {
 
+        //create values for output to xml
         ArrayList<OutputGenerator> totals = getTotals(generationReport);
         ArrayList<OutputDay> maxEmissionGenerators = getMaxEmissionGenerators(generationReport);
         ArrayList<ActualHeatRates> actualHeatRates = getActualHeatRatesList(generationReport);
+        //pass values to created object for generation output xml
         GenerationOutput generationOutput = new GenerationOutput(totals,maxEmissionGenerators,actualHeatRates);
 
-
-        String path = "output/GenerartionOutput"+ Date.from(Instant.now())+".xml";
+        // create output filename with date
+        String path = "output/GenerarationOutput"+ Date.from(Instant.now())+".xml";
 
         File file = new File( path );
 
@@ -33,13 +35,11 @@ public class CreateOutput {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(GenerationOutput.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            //set marshaller to format xml
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            // marshall object to file
             jaxbMarshaller.marshal(generationOutput, file);
             jaxbMarshaller.marshal(generationOutput, System.out);
-
-            System.out.println(file.exists());
-            System.out.println(file.getName());
-
         } catch (JAXBException e) {
             e.printStackTrace();
         }
@@ -47,7 +47,8 @@ public class CreateOutput {
 
     }
 
-
+    // for each generator type, iterate through and calculate total over days in period
+    // create output object and add to list to pass to root element
     public static ArrayList<OutputGenerator> getTotals(GenerationReport generationReport){
         Calculator calculator = new Calculator();
         ArrayList<OutputGenerator> outputGenerators = new ArrayList<OutputGenerator>();
@@ -93,6 +94,7 @@ public class CreateOutput {
 
     }
 
+    // for each gas and coal generator, iterate through and create output emission generator object
     public static ArrayList<OutputDay> getMaxEmissionGenerators(GenerationReport generationReport){
         ArrayList<OutputDay> maxEmissionGenerators = new ArrayList<OutputDay>();
         ArrayList<OutputDay> gasAndCoal = new ArrayList<OutputDay>();
@@ -121,7 +123,8 @@ public class CreateOutput {
                 gasAndCoal.add(outputDay);
             }
         }
-        System.out.println(gasAndCoal);
+
+        //subclass implementing comparator sort for arraylist of custom objects
         class SortByEmission implements Comparator<OutputDay> {
             public int compare(OutputDay a, OutputDay b) {
                 if ( a.getEmission() < b.getEmission() ) return -1;
@@ -130,11 +133,19 @@ public class CreateOutput {
             }
         }
 
+        // create a list of what to remove from the gasAndCoal list
         ArrayList<OutputDay> removeList = new ArrayList<OutputDay>();
         while (gasAndCoal.size() > 0){
+            //sort all gas and coal objects by emission, assign max
+            // remove objects with same date as max
+            // repeat until highest emission for each date is in
+            // maxEmission generator list
             Collections.sort(gasAndCoal, new SortByEmission());
+            // assign highest emission object to max and remove from gas and coal list
             OutputDay max = gasAndCoal.remove(gasAndCoal.size()-1);
+            // add max to the maxEmissionGenerator list we need
             maxEmissionGenerators.add(max);
+            //remove any object with matching date to max
             for (OutputDay outputDay: gasAndCoal) {
                 if (outputDay.getDate().contains(max.getDate())){
                     removeList.add(outputDay);
@@ -146,6 +157,7 @@ public class CreateOutput {
 
     }
 
+    // for each coal generator create output object with actual heat value
     public static ArrayList<ActualHeatRates> getActualHeatRatesList(GenerationReport generationReport) {
         ArrayList<ActualHeatRates> actualHeatRatesList = new ArrayList<ActualHeatRates>();
         for (CoalGenerator coalGenerator : generationReport.getCoal().getCoalGenerators()) {

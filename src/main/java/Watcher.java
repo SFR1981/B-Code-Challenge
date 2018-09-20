@@ -27,8 +27,9 @@ public class Watcher {
                 for (WatchEvent<?> event : watchKey.pollEvents()) {
                     WatchEvent.Kind<?> kind = event.kind();
                     Path eventPath = (Path) event.context();
+                    //pass path of file to makeReport()
                     makeReport(eventPath);
-                    System.out.println(eventPath);
+
                 }
 
             } while (watchKey.reset());
@@ -41,13 +42,15 @@ public class Watcher {
     public static void makeReport(Path eventPath) {
         Calculator calculator = new Calculator();
 
-
+        //get file
         File inputFile = new File("input/"+ eventPath);
 
         try {
             JAXBContext context = JAXBContext.newInstance(GenerationReport.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
+            //create object generationReport
             GenerationReport generationReport = (GenerationReport) unmarshaller.unmarshal(inputFile);
+            //pass to createOutput
             CreateOutput.createObjects(generationReport);
         } catch (JAXBException e) {
             e.printStackTrace();
