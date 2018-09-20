@@ -1,6 +1,9 @@
+package Input;
+
+import Input.GasGenerator;
+import Input.Generation;
 
 import javax.xml.bind.annotation.XmlElement;
-import java.util.ArrayList;
 
 
 public class CoalGenerator extends GasGenerator {

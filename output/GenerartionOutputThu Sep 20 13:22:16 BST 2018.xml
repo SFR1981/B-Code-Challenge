@@ -2,39 +2,39 @@
 <GenerationOutput>
     <Totals>
         <Generator>
-            <Name>Wind[Offshore]</Name>
+            <Name>Input.Wind[Offshore]</Name>
             <Total>1662.6174457050001</Total>
         </Generator>
         <Generator>
-            <Name>Wind[Onshore]</Name>
+            <Name>Input.Wind[Onshore]</Name>
             <Total>1364.064786585</Total>
         </Generator>
         <Generator>
-            <Name>Gas[1]</Name>
+            <Name>Input.Gas[1]</Name>
             <Total>8512.25460552</Total>
         </Generator>
         <Generator>
-            <Name>Coal[1]</Name>
+            <Name>Input.Coal[1]</Name>
             <Total>5341.716526632001</Total>
         </Generator>
     </Totals>
     <MaxEmissionGenerators>
         <Date>2017-01-01T00:00:00+00:00</Date>
         <Emission>137.175004008</Emission>
-        <Name>Coal[1]</Name>
+        <Name>Input.Coal[1]</Name>
     </MaxEmissionGenerators>
     <MaxEmissionGenerators>
         <Date>2017-01-02T00:00:00+00:00</Date>
         <Emission>136.440767624</Emission>
-        <Name>Coal[1]</Name>
+        <Name>Input.Coal[1]</Name>
     </MaxEmissionGenerators>
     <MaxEmissionGenerators>
         <Date>2017-01-03T00:00:00+00:00</Date>
         <Emission>5.1323807</Emission>
-        <Name>Gas[1]</Name>
+        <Name>Input.Gas[1]</Name>
     </MaxEmissionGenerators>
     <ActualHeatRates>
         <HeatRate>1.0</HeatRate>
-        <Name>Coal[1]</Name>
+        <Name>Input.Coal[1]</Name>
     </ActualHeatRates>
 </GenerationOutput>

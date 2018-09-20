@@ -2,7 +2,7 @@
 <GenerationReport>
   <Wind>
     <WindGenerator>
-      <Name>Wind[Offshore]</Name>
+      <Name>Input.Wind[Offshore]</Name>
       <Generation>
         <Day>
           <Date>2017-01-01T00:00:00+00:00</Date>
@@ -23,7 +23,7 @@
       <Location>Offshore</Location>
     </WindGenerator>
     <WindGenerator>
-      <Name>Wind[Onshore]</Name>
+      <Name>Input.Wind[Onshore]</Name>
       <Generation>
         <Day>
           <Date>2017-01-01T00:00:00+00:00</Date>
@@ -46,7 +46,7 @@
   </Wind>
   <Gas>
     <GasGenerator>
-      <Name>Gas[1]</Name>
+      <Name>Input.Gas[1]</Name>
       <Generation>
         <Day>
           <Date>2017-01-01T00:00:00+00:00</Date>
@@ -69,7 +69,7 @@
   </Gas>
   <Coal>
     <CoalGenerator>
-      <Name>Coal[1]</Name>
+      <Name>Input.Coal[1]</Name>
       <Generation>
         <Day>
           <Date>2017-01-01T00:00:00+00:00</Date>

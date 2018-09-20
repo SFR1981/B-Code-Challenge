@@ -1,8 +1,9 @@
+package Input;
+
+import Input.Generation;
+import Input.Generator;
+
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
-import java.util.ArrayList;
-
 
 
 public class WindGenerator extends Generator {

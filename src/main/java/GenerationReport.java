@@ -1,7 +1,9 @@
+import Input.Coal;
+import Input.Gas;
+import Input.Wind;
+
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.ArrayList;
 
 @XmlRootElement(name="GenerationReport")
 public class GenerationReport {
@@ -55,13 +57,13 @@ public class GenerationReport {
 //
 //        public ArrayList<OutputGenerator> getAllGenerators(){
 //            ArrayList <OutputGenerator> all = new ArrayList<OutputGenerator>();
-//            for (CoalGenerator coalGenerator : this.coalGenerators){
+//            for (Input.CoalGenerator coalGenerator : this.coalGenerators){
 //                all.add(coalGenerator);
 //            }
-//            for (GasGenerator gasGenerator : this.gasGenerators){
+//            for (Input.GasGenerator gasGenerator : this.gasGenerators){
 //                all.add(gasGenerator);
 //            }
-//            for (WindGenerator  windGenerator: this.windGenerators){
+//            for (Input.WindGenerator  windGenerator: this.windGenerators){
 //                all.add(windGenerator);
 //            }
 //            return all;

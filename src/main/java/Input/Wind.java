@@ -1,5 +1,8 @@
+package Input;
+
+import Input.WindGenerator;
+
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.ArrayList;
 
 public class Wind {

@@ -1,3 +1,5 @@
+package Input;
+
 import javax.xml.bind.annotation.XmlElement;
 import java.util.Date;
 

@@ -1,3 +1,6 @@
+import Input.CoalGenerator;
+import Input.GasGenerator;
+import Input.WindGenerator;
 import Reference.Ref;
 import Reference.ReferenceData;
 

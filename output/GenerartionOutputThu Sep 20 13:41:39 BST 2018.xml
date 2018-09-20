@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <GenerationOutput>
     <Totals>
-        <Generator>
+        <Input.Generator>
             <Name>Input.Wind[Offshore]</Name>
             <Total>1662.6174457050001</Total>
-        </Generator>
-        <Generator>
+        </Input.Generator>
+        <Input.Generator>
             <Name>Input.Wind[Onshore]</Name>
             <Total>1364.064786585</Total>
-        </Generator>
-        <Generator>
+        </Input.Generator>
+        <Input.Generator>
             <Name>Input.Gas[1]</Name>
             <Total>8512.25460552</Total>
-        </Generator>
-        <Generator>
+        </Input.Generator>
+        <Input.Generator>
             <Name>Input.Coal[1]</Name>
             <Total>5341.716526632001</Total>
-        </Generator>
+        </Input.Generator>
     </Totals>
     <MaxEmissionGenerators>
         <Date>2017-01-01T00:00:00+00:00</Date>

@@ -1,9 +1,13 @@
+package Input;
+
+import Input.CoalGenerator;
+
 import javax.xml.bind.annotation.XmlElement;
 import java.util.ArrayList;
 
 public class Coal {
 
-    private ArrayList<CoalGenerator> coalGenerators = new ArrayList<CoalGenerator>();;
+    private ArrayList<CoalGenerator> coalGenerators = new ArrayList<CoalGenerator>();
 
     public Coal(){}
 

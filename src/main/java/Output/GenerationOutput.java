@@ -26,7 +26,7 @@ public class GenerationOutput {
     }
 
     @XmlElementWrapper(name="Totals")
-    @XmlElement(name="Generator")
+    @XmlElement(name="Input.Generator")
     public ArrayList<OutputGenerator> getTotals() {
         return totals;
     }

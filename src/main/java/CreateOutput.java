@@ -1,3 +1,7 @@
+import Input.CoalGenerator;
+import Input.Day;
+import Input.GasGenerator;
+import Input.WindGenerator;
 import Output.ActualHeatRates;
 import Output.GenerationOutput;
 import Output.OutputDay;
@@ -6,7 +10,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.File;
-import java.io.IOException;
 import java.time.Instant;
 import java.util.*;
 
