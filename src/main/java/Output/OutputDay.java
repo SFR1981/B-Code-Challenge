@@ -2,16 +2,16 @@ package Output;
 
 import javax.xml.bind.annotation.XmlElement;
 
-public class Day {
+public class OutputDay {
 
     private String name;
     private String date;
     private double emission;
 
-    public Day(){
+    public OutputDay(){
 
     }
-    public Day(String name, String date, double emission){
+    public OutputDay(String name, String date, double emission){
         this.name = name;
         this.date = date;
         this.emission = emission;

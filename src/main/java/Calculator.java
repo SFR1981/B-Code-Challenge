@@ -1,4 +1,5 @@
-package Reference;
+import Reference.Ref;
+import Reference.ReferenceData;
 
 import javax.xml.bind.JAXBException;
 
@@ -74,6 +75,32 @@ public class Calculator {
 
     public double getEmissionsFactorHigh() {
         return emissionsFactorHigh;
+    }
+
+
+
+    public double getValueFactorForGenerator(WindGenerator windGenerator){
+        if (windGenerator.getLocation() == "Onshore")
+        return getValueFactorHigh();
+        else return getValueFactorLow();
+
+    }
+
+    public double getValueFactorForGenerator(CoalGenerator coalGenerator){
+        return getValueFactorMedium();
+    }
+
+    public double getValueFactorForGenerator(GasGenerator gasGenerator){
+        return getValueFactorMedium();
+    }
+
+    public double getEmissionsFactorForGenerator(CoalGenerator coalGenerator){
+        return getEmissionsFactorHigh();
+
+    }
+
+    public double getEmissionsFactorForGenerator(GasGenerator gasGenerator){
+        return getEmissionsFactorMedium();
     }
 }
 

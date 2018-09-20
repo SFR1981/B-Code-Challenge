@@ -1,5 +1,3 @@
-import Reference.Calculator;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -18,8 +16,7 @@ public class Watcher {
             Map<WatchKey, Path> keyMap = new HashMap<>();
             Path path = Paths.get("input");
             keyMap.put(path.register(service,
-                    StandardWatchEventKinds.ENTRY_CREATE,
-                    StandardWatchEventKinds.ENTRY_MODIFY), path);
+                    StandardWatchEventKinds.ENTRY_CREATE), path);
 
             WatchKey watchKey;
 
@@ -52,6 +49,7 @@ public class Watcher {
             JAXBContext context = JAXBContext.newInstance(GenerationReport.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
             GenerationReport generationReport = (GenerationReport) unmarshaller.unmarshal(inputFile);
+            CreateOutput.createObjects(generationReport);
             System.out.println(generationReport);
             System.out.println(generationReport.getCoal().getCoalGenerators().size());
         } catch (JAXBException e) {

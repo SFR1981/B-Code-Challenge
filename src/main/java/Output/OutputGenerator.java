@@ -2,15 +2,15 @@ package Output;
 
 import javax.xml.bind.annotation.XmlElement;
 
-public class Generator {
+public class OutputGenerator {
 
     private String name;
     private double total;
 
 
-    public Generator(){}
+    public OutputGenerator(){}
 
-    public Generator(String name, double total){
+    public OutputGenerator(String name, double total){
         this.name = name;
         this.total = total;
     }

@@ -53,8 +53,8 @@ public class GenerationReport {
             this.coal = coal;
         }
 //
-//        public ArrayList<Generator> getAllGenerators(){
-//            ArrayList <Generator> all = new ArrayList<Generator>();
+//        public ArrayList<OutputGenerator> getAllGenerators(){
+//            ArrayList <OutputGenerator> all = new ArrayList<OutputGenerator>();
 //            for (CoalGenerator coalGenerator : this.coalGenerators){
 //                all.add(coalGenerator);
 //            }

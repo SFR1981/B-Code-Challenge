@@ -1,6 +1,7 @@
 package Output;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 
@@ -8,15 +9,15 @@ import java.util.ArrayList;
 public class GenerationOutput {
 
 
-    private ArrayList<Generator> totals;
-    private ArrayList<Day> maxEmissionGenerators;
+    private ArrayList<OutputGenerator> totals;
+    private ArrayList<OutputDay> maxEmissionGenerators;
     private ArrayList<ActualHeatRates> actualHeatRatesList;
 
     public GenerationOutput() {
     }
 
-    public GenerationOutput(ArrayList<Generator> totals,
-                            ArrayList<Day> maxEmissionGenerators,
+    public GenerationOutput(ArrayList<OutputGenerator> totals,
+                            ArrayList<OutputDay> maxEmissionGenerators,
                             ArrayList<ActualHeatRates> actualHeatRatesList) {
         this.totals = totals;
         this.maxEmissionGenerators = maxEmissionGenerators;
@@ -24,21 +25,22 @@ public class GenerationOutput {
 
     }
 
-    @XmlElement(name="Totals")
-    public ArrayList<Generator> getTotals() {
+    @XmlElementWrapper(name="Totals")
+    @XmlElement(name="Generator")
+    public ArrayList<OutputGenerator> getTotals() {
         return totals;
     }
 
-    public void setTotals(ArrayList<Generator> totals) {
+    public void setTotals(ArrayList<OutputGenerator> totals) {
         this.totals = totals;
     }
 
     @XmlElement(name="MaxEmissionGenerators")
-    public ArrayList<Day> getMaxEmissionGenerators() {
+    public ArrayList<OutputDay> getMaxEmissionGenerators() {
         return maxEmissionGenerators;
     }
 
-    public void setMaxEmissionGenerators(ArrayList<Day> maxEmissionGenerators) {
+    public void setMaxEmissionGenerators(ArrayList<OutputDay> maxEmissionGenerators) {
         this.maxEmissionGenerators = maxEmissionGenerators;
     }
 
@@ -54,8 +56,8 @@ public class GenerationOutput {
     }
 
 
-//        public ArrayList<Generator> getAllGenerators(){
-//            ArrayList <Generator> all = new ArrayList<Generator>();
+//        public ArrayList<OutputGenerator> getAllGenerators(){
+//            ArrayList <OutputGenerator> all = new ArrayList<OutputGenerator>();
 //            for (CoalGenerator coalGenerator : this.coalGenerators){
 //                all.add(coalGenerator);
 //            }
