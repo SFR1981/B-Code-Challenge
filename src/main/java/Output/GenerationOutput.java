@@ -35,7 +35,8 @@ public class GenerationOutput {
         this.totals = totals;
     }
 
-    @XmlElement(name="MaxEmissionGenerators")
+    @XmlElementWrapper(name="MaxEmissionGenerators")
+    @XmlElement(name="Day")
     public ArrayList<OutputDay> getMaxEmissionGenerators() {
         return maxEmissionGenerators;
     }

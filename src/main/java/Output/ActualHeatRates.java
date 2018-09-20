@@ -2,8 +2,9 @@ package Output;
 
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
-
+@XmlType(propOrder = {"name", "heatRate"})
 public class ActualHeatRates {
 
     private String name;

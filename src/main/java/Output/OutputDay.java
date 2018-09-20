@@ -1,7 +1,9 @@
 package Output;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
+@XmlType(propOrder = {"name", "date", "emission"})
 public class OutputDay {
 
     private String name;
