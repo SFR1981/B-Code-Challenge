@@ -1,11 +1,11 @@
 package Output;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 
+
 @XmlRootElement(name="GenerationOutput")
+@XmlType(propOrder = {"totals", "maxEmissionGenerators", "actualHeatRatesList"})
 public class GenerationOutput {
 
 
@@ -55,20 +55,6 @@ public class GenerationOutput {
         this.actualHeatRatesList = actualHeatRatesList;
     }
 
-
-//        public ArrayList<OutputGenerator> getAllGenerators(){
-//            ArrayList <OutputGenerator> all = new ArrayList<OutputGenerator>();
-//            for (CoalGenerator coalGenerator : this.coalGenerators){
-//                all.add(coalGenerator);
-//            }
-//            for (GasGenerator gasGenerator : this.gasGenerators){
-//                all.add(gasGenerator);
-//            }
-//            for (WindGenerator  windGenerator: this.windGenerators){
-//                all.add(windGenerator);
-//            }
-//            return all;
-//        }
 
 
     }

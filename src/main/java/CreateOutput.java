@@ -1,10 +1,18 @@
+import Output.ActualHeatRates;
+import Output.GenerationOutput;
 import Output.OutputDay;
 import Output.OutputGenerator;
+import jdk.nashorn.internal.parser.DateParser;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.time.Instant;
+import java.util.*;
 
 public class CreateOutput {
 
@@ -89,32 +97,51 @@ public class CreateOutput {
             }
         }
 
+        ArrayList<OutputDay> removeList = new ArrayList<OutputDay>();
         while (gasAndCoal.size() > 0){
             Collections.sort(gasAndCoal, new SortByEmission());
             OutputDay max = gasAndCoal.remove(gasAndCoal.size()-1);
             maxEmissionGenerators.add(max);
             for (OutputDay outputDay: gasAndCoal) {
                 if (outputDay.getDate().contains(max.getDate())){
-                    System.out.println(outputDay.getDate());
-                    System.out.println(max.getDate());
-                    gasAndCoal.remove(outputDay);
+                    removeList.add(outputDay);
                 }
-
             }
+            gasAndCoal.removeAll(removeList);
 
         }
 
-
-
-
-
-
-
-
-            System.out.println(maxEmissionGenerators);
-
-
+        ArrayList<ActualHeatRates> actualHeatRatesList = new ArrayList<ActualHeatRates>();
+        for (CoalGenerator coalGenerator: generationReport.getCoal().getCoalGenerators()){
+            String name = coalGenerator.getName();
+            double heatRate = coalGenerator.getActualHeatRate();
+            ActualHeatRates actualHeatRates = new ActualHeatRates(name, heatRate);
+            actualHeatRatesList.add(actualHeatRates);
         }
+
+        GenerationOutput generationOutput = new GenerationOutput(outputGenerators,maxEmissionGenerators,actualHeatRatesList);
+
+        String path = "output/GenerartionOutput"+ Date.from(Instant.now())+".xml";
+
+        File file = new File( path );
+
+
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(GenerationOutput.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            jaxbMarshaller.marshal(generationOutput, file);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+    public ArrayList<OutputGenerator> getTotals(GenerationReport generationReport){
+
+    }
 
 
 
