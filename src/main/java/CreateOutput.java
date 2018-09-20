@@ -2,24 +2,50 @@ import Output.ActualHeatRates;
 import Output.GenerationOutput;
 import Output.OutputDay;
 import Output.OutputGenerator;
-import jdk.nashorn.internal.parser.DateParser;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
+import java.io.IOException;
 import java.time.Instant;
 import java.util.*;
 
 public class CreateOutput {
 
+
+
     public static void createObjects(GenerationReport generationReport) {
 
+        ArrayList<OutputGenerator> totals = getTotals(generationReport);
+        ArrayList<OutputDay> maxEmissionGenerators = getMaxEmissionGenerators(generationReport);
+        ArrayList<ActualHeatRates> actualHeatRates = getActualHeatRatesList(generationReport);
+        GenerationOutput generationOutput = new GenerationOutput(totals,maxEmissionGenerators,actualHeatRates);
 
-        System.out.println(generationReport);
+
+        String path = "output/GenerartionOutput"+ Date.from(Instant.now())+".xml";
+
+        File file = new File( path );
+
+
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(GenerationOutput.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            jaxbMarshaller.marshal(generationOutput, file);
+            jaxbMarshaller.marshal(generationOutput, System.out);
+
+            System.out.println(file.exists());
+            System.out.println(file.getName());
+
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+    public static ArrayList<OutputGenerator> getTotals(GenerationReport generationReport){
         Calculator calculator = new Calculator();
         ArrayList<OutputGenerator> outputGenerators = new ArrayList<OutputGenerator>();
 
@@ -60,10 +86,14 @@ public class CreateOutput {
             OutputGenerator outputGenerator = new OutputGenerator(name, total);
             outputGenerators.add(outputGenerator);
         }
-        System.out.println(outputGenerators);
+        return outputGenerators;
 
+    }
+
+    public static ArrayList<OutputDay> getMaxEmissionGenerators(GenerationReport generationReport){
         ArrayList<OutputDay> maxEmissionGenerators = new ArrayList<OutputDay>();
         ArrayList<OutputDay> gasAndCoal = new ArrayList<OutputDay>();
+        Calculator calculator = new Calculator();
 
         for (GasGenerator gasGenerator : generationReport.getGas().getGasGenerators()) {
             String name = gasGenerator.getName();
@@ -108,41 +138,20 @@ public class CreateOutput {
                 }
             }
             gasAndCoal.removeAll(removeList);
-
         }
+        return maxEmissionGenerators;
 
+    }
+
+    public static ArrayList<ActualHeatRates> getActualHeatRatesList(GenerationReport generationReport) {
         ArrayList<ActualHeatRates> actualHeatRatesList = new ArrayList<ActualHeatRates>();
-        for (CoalGenerator coalGenerator: generationReport.getCoal().getCoalGenerators()){
+        for (CoalGenerator coalGenerator : generationReport.getCoal().getCoalGenerators()) {
             String name = coalGenerator.getName();
             double heatRate = coalGenerator.getActualHeatRate();
             ActualHeatRates actualHeatRates = new ActualHeatRates(name, heatRate);
             actualHeatRatesList.add(actualHeatRates);
         }
-
-        GenerationOutput generationOutput = new GenerationOutput(outputGenerators,maxEmissionGenerators,actualHeatRatesList);
-
-        String path = "output/GenerartionOutput"+ Date.from(Instant.now())+".xml";
-
-        File file = new File( path );
-
-
-        try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(GenerationOutput.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            jaxbMarshaller.marshal(generationOutput, file);
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-
-
+        return actualHeatRatesList;
     }
-
-
-    public ArrayList<OutputGenerator> getTotals(GenerationReport generationReport){
-
-    }
-
-
 
 }
