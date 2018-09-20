@@ -11,13 +11,10 @@ public class Ref {
     public static ReferenceData getReference() throws JAXBException {
         ReferenceData referenceData = null;
         File file = new File("static/ReferenceData.xml");
-        System.out.println(file);
         try {
             JAXBContext context = JAXBContext.newInstance(ReferenceData.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
             referenceData = (ReferenceData) unmarshaller.unmarshal(file);
-            System.out.println(referenceData.getFactors().getValueFactor());
-
         } catch (JAXBException e) {
             e.printStackTrace();
 

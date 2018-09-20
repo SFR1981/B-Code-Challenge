@@ -39,7 +39,6 @@ public class CreateOutput {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             // marshall object to file
             jaxbMarshaller.marshal(generationOutput, file);
-            jaxbMarshaller.marshal(generationOutput, System.out);
         } catch (JAXBException e) {
             e.printStackTrace();
         }
@@ -61,7 +60,6 @@ public class CreateOutput {
                 total += (day.getEnergy() * day.getPrice()) * calculator.getValueFactorForGenerator(windGenerator);
 
             }
-            System.out.println(total);
             OutputGenerator outputGenerator = new OutputGenerator(name, total);
             outputGenerators.add(outputGenerator);
         }
@@ -74,7 +72,6 @@ public class CreateOutput {
                 total += (day.getEnergy() * day.getPrice()) * calculator.getValueFactorForGenerator(gasGenerator);
 
             }
-            System.out.println(total);
             OutputGenerator outputGenerator = new OutputGenerator(name, total);
             outputGenerators.add(outputGenerator);
         }
@@ -86,7 +83,6 @@ public class CreateOutput {
                 total += (day.getEnergy() * day.getPrice()) * calculator.getValueFactorForGenerator(coalGenerator);
 
             }
-            System.out.println(total);
             OutputGenerator outputGenerator = new OutputGenerator(name, total);
             outputGenerators.add(outputGenerator);
         }

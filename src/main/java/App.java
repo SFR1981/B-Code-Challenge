@@ -6,7 +6,7 @@ import java.nio.file.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Watcher {
+public class App {
 
     public static void main(String[] args) {
 
@@ -16,7 +16,8 @@ public class Watcher {
             Map<WatchKey, Path> keyMap = new HashMap<>();
             Path path = Paths.get("input");
             keyMap.put(path.register(service,
-                    StandardWatchEventKinds.ENTRY_CREATE), path);
+                    StandardWatchEventKinds.ENTRY_CREATE,
+                    StandardWatchEventKinds.ENTRY_MODIFY), path);
 
             WatchKey watchKey;
 

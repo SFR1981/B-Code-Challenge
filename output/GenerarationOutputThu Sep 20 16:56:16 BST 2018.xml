@@ -3,7 +3,7 @@
     <Totals>
         <Input.Generator>
             <Name>Input.Wind[Offshore]</Name>
-            <Total>1662.6174457050001</Total>
+            <Total>1650.9494957050001</Total>
         </Input.Generator>
         <Input.Generator>
             <Name>Input.Wind[Onshore]</Name>
